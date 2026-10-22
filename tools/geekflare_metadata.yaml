@@ -1,0 +1,22 @@
+identity:
+  name: geekflare_metadata
+  author: geekflare
+  label:
+    en_US: Geekflare Page Metadata
+description:
+  human:
+    en_US: Get a page's title, description, canonical URL, Open Graph, and Twitter Card tags.
+  llm: Get a page's metadata only (title, description, canonical, Open Graph, Twitter Card) as JSON. Cheaper than a full scrape.
+parameters:
+- name: url
+  type: string
+  required: true
+  label:
+    en_US: URL
+  human_description:
+    en_US: Full URL of the page, or a domain such as example.com.
+  form: llm
+  llm_description: Full URL of the page, or a domain such as example.com.
+extra:
+  python:
+    source: tools/geekflare_metadata.py

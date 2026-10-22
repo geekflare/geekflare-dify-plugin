@@ -1,0 +1,38 @@
+identity:
+  name: geekflare_brand
+  author: geekflare
+  label:
+    en_US: Geekflare Brand
+description:
+  human:
+    en_US: 'Get a company''s brand identity from its website: name, logos, colors, fonts, and social profiles.'
+  llm: Get a company's brand identity (name, logos, brand colors, fonts, social profiles) from its website as JSON.
+parameters:
+- name: url
+  type: string
+  required: true
+  label:
+    en_US: URL
+  human_description:
+    en_US: Website URL or domain, e.g. stripe.com.
+  form: llm
+  llm_description: Website URL or domain, e.g. stripe.com.
+- name: mode
+  type: select
+  required: false
+  label:
+    en_US: Mode
+  human_description:
+    en_US: standard, or enriched to add company intelligence.
+  form: form
+  default: standard
+  options:
+  - value: standard
+    label:
+      en_US: Standard
+  - value: enriched
+    label:
+      en_US: Enriched
+extra:
+  python:
+    source: tools/geekflare_brand.py

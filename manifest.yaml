@@ -1,0 +1,32 @@
+version: 0.0.1
+type: plugin
+author: geekflare
+name: geekflare
+label:
+  en_US: Geekflare
+description:
+  en_US: Web search with full Google SERP results, page scraping to Markdown or JSON, page metadata, brand data, screenshots, URL-to-PDF, and website diagnostics (uptime, DNS, TLS, redirects, Lighthouse).
+icon: icon.png
+created_at: "2026-10-22T00:00:00Z"
+resource:
+  memory: 268435456
+  permission: {}
+plugins:
+  tools:
+    - provider/geekflare.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 1.0.0
+privacy: PRIVACY.md
+repo: https://github.com/geekflare/geekflare-dify-plugin
+contact: support@geekflare.com
+tags:
+  - search
+  - utilities

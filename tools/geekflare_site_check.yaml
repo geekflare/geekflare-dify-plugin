@@ -1,0 +1,63 @@
+identity:
+  name: geekflare_site_check
+  author: geekflare
+  label:
+    en_US: Geekflare Website Check
+description:
+  human:
+    en_US: 'Run a website check: uptime, DNS records, DNSSEC, TLS/SSL, redirects, broken links, load time, mixed content,
+      or a Lighthouse audit.'
+  llm: 'Run one website check and return the result as JSON: site_status (up/down), dns_records, dnssec, tls_scan (certificate
+    and TLS versions), redirect_check, broken_links, load_time, mixed_content, or lighthouse (performance/SEO/accessibility
+    scores; slow). Reports findings only.'
+parameters:
+- name: url
+  type: string
+  required: true
+  label:
+    en_US: URL
+  human_description:
+    en_US: Website URL or domain, e.g. example.com.
+  form: llm
+  llm_description: Website URL or domain, e.g. example.com.
+- name: check
+  type: select
+  required: true
+  label:
+    en_US: Check
+  human_description:
+    en_US: Which check to run.
+  form: llm
+  llm_description: Which check to run.
+  default: site_status
+  options:
+  - value: site_status
+    label:
+      en_US: Site status
+  - value: dns_records
+    label:
+      en_US: DNS records
+  - value: dnssec
+    label:
+      en_US: DNSSEC
+  - value: tls_scan
+    label:
+      en_US: TLS/SSL scan
+  - value: redirect_check
+    label:
+      en_US: Redirect chain
+  - value: broken_links
+    label:
+      en_US: Broken links
+  - value: load_time
+    label:
+      en_US: Load time
+  - value: mixed_content
+    label:
+      en_US: Mixed content
+  - value: lighthouse
+    label:
+      en_US: Lighthouse audit
+extra:
+  python:
+    source: tools/geekflare_site_check.py

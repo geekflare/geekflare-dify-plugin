@@ -1,0 +1,57 @@
+identity:
+  name: geekflare_url_to_pdf
+  author: geekflare
+  label:
+    en_US: Geekflare URL to PDF
+description:
+  human:
+    en_US: Convert a web page to a PDF. Returns a hosted download URL.
+  llm: Convert a web page to a PDF and return JSON with a hosted download URL.
+parameters:
+- name: url
+  type: string
+  required: true
+  label:
+    en_US: URL
+  human_description:
+    en_US: Full URL of the page, or a domain such as example.com.
+  form: llm
+  llm_description: Full URL of the page, or a domain such as example.com.
+- name: paper_format
+  type: select
+  required: false
+  label:
+    en_US: Paper size
+  human_description:
+    en_US: Paper size.
+  form: form
+  default: a4
+  options:
+  - value: a4
+    label:
+      en_US: A4
+  - value: letter
+    label:
+      en_US: Letter
+  - value: legal
+    label:
+      en_US: Legal
+- name: orientation
+  type: select
+  required: false
+  label:
+    en_US: Orientation
+  human_description:
+    en_US: Page orientation.
+  form: form
+  default: portrait
+  options:
+  - value: portrait
+    label:
+      en_US: Portrait
+  - value: landscape
+    label:
+      en_US: Landscape
+extra:
+  python:
+    source: tools/geekflare_url_to_pdf.py

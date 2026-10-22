@@ -1,0 +1,91 @@
+identity:
+  name: geekflare_search
+  author: geekflare
+  label:
+    en_US: Geekflare Search
+description:
+  human:
+    en_US: Search the live web, news, or images. Turn on SERP to get the full Google results page (organic results, AI Overview,
+      People Also Ask) for a country or city.
+  llm: Search the live web, news, or images and return titles, URLs, and snippets as JSON. Set serp to true for the full Google
+    results page. Use for current information and cite the returned URLs.
+parameters:
+- name: query
+  type: string
+  required: true
+  label:
+    en_US: Query
+  human_description:
+    en_US: The search query.
+  form: llm
+  llm_description: The search query.
+- name: limit
+  type: number
+  required: false
+  label:
+    en_US: Number of results
+  human_description:
+    en_US: Number of results, 1-100.
+  form: llm
+  llm_description: Number of results, 1-100.
+  default: 10
+- name: source
+  type: select
+  required: false
+  label:
+    en_US: Source
+  human_description:
+    en_US: Search source.
+  form: llm
+  llm_description: Search source.
+  default: web
+  options:
+  - value: web
+    label:
+      en_US: Web
+  - value: news
+    label:
+      en_US: News
+  - value: images
+    label:
+      en_US: Images
+- name: location
+  type: string
+  required: false
+  label:
+    en_US: Country
+  human_description:
+    en_US: Country code (ISO alpha-2) for localized results, e.g. us.
+  form: llm
+  llm_description: Country code (ISO alpha-2) for localized results, e.g. us.
+- name: city
+  type: string
+  required: false
+  label:
+    en_US: City
+  human_description:
+    en_US: City for localized results, e.g. London,England,United Kingdom. Takes priority over country.
+  form: llm
+  llm_description: City for localized results, e.g. London,England,United Kingdom. Takes priority over country.
+- name: time
+  type: string
+  required: false
+  label:
+    en_US: Recency
+  human_description:
+    en_US: 'Recency filter: any, h, d, w, m, y, or with a count such as d7.'
+  form: llm
+  llm_description: 'Recency filter: any, h, d, w, m, y, or with a count such as d7.'
+- name: serp
+  type: boolean
+  required: false
+  label:
+    en_US: Full Google SERP
+  human_description:
+    en_US: Return the full Google results page.
+  form: llm
+  llm_description: Return the full Google results page.
+  default: false
+extra:
+  python:
+    source: tools/geekflare_search.py

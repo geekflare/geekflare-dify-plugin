@@ -1,0 +1,66 @@
+identity:
+  name: geekflare_scrape
+  author: geekflare
+  label:
+    en_US: Geekflare Scrape URL
+description:
+  human:
+    en_US: Fetch a public web page and return its content as Markdown, text, HTML, or structured JSON.
+  llm: Fetch a public web page and return its content (Markdown by default) as JSON. Use template product or contact for structured
+    data. Only for publicly accessible pages.
+parameters:
+- name: url
+  type: string
+  required: true
+  label:
+    en_US: URL
+  human_description:
+    en_US: Full URL of the page, or a domain such as example.com.
+  form: llm
+  llm_description: Full URL of the page, or a domain such as example.com.
+- name: format
+  type: select
+  required: false
+  label:
+    en_US: Format
+  human_description:
+    en_US: Output format.
+  form: form
+  default: markdown
+  options:
+  - value: markdown
+    label:
+      en_US: Markdown
+  - value: markdown-llm
+    label:
+      en_US: Markdown (LLM-optimized)
+  - value: text
+    label:
+      en_US: Text
+  - value: html
+    label:
+      en_US: HTML
+  - value: json
+    label:
+      en_US: JSON
+- name: template
+  type: select
+  required: false
+  label:
+    en_US: Template
+  human_description:
+    en_US: 'Structured extraction template: product (title, price, availability, images, ratings) or contact (emails, phones,
+      social profiles).'
+  form: llm
+  llm_description: 'Structured extraction template: product (title, price, availability, images, ratings) or contact (emails,
+    phones, social profiles).'
+  options:
+  - value: product
+    label:
+      en_US: Product
+  - value: contact
+    label:
+      en_US: Contact
+extra:
+  python:
+    source: tools/geekflare_scrape.py

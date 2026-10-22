@@ -1,0 +1,66 @@
+identity:
+  name: geekflare_screenshot
+  author: geekflare
+  label:
+    en_US: Geekflare Screenshot
+description:
+  human:
+    en_US: Capture a screenshot of a web page. Returns a hosted image URL.
+  llm: Take a screenshot of a web page and return JSON with a hosted image URL.
+parameters:
+- name: url
+  type: string
+  required: true
+  label:
+    en_US: URL
+  human_description:
+    en_US: Full URL of the page, or a domain such as example.com.
+  form: llm
+  llm_description: Full URL of the page, or a domain such as example.com.
+- name: full_page
+  type: boolean
+  required: false
+  label:
+    en_US: Full page
+  human_description:
+    en_US: Capture the whole page instead of the viewport.
+  form: form
+  default: false
+- name: device
+  type: select
+  required: false
+  label:
+    en_US: Device
+  human_description:
+    en_US: Device to emulate.
+  form: form
+  default: desktop
+  options:
+  - value: desktop
+    label:
+      en_US: Desktop
+  - value: mobile
+    label:
+      en_US: Mobile
+- name: image_type
+  type: select
+  required: false
+  label:
+    en_US: Image type
+  human_description:
+    en_US: Image format.
+  form: form
+  default: png
+  options:
+  - value: png
+    label:
+      en_US: PNG
+  - value: jpeg
+    label:
+      en_US: JPEG
+  - value: webp
+    label:
+      en_US: WebP
+extra:
+  python:
+    source: tools/geekflare_screenshot.py
