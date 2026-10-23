@@ -18,7 +18,7 @@ Give Dify workflows, chatflows, and agents live web data and website checks with
 | Geekflare Brand | Logos, brand colors, fonts, and social profiles for a website |
 | Geekflare Screenshot | Viewport or full-page screenshot as a hosted image URL |
 | Geekflare URL to PDF | Page as PDF, returned as a hosted download URL |
-| Geekflare Website Check | Uptime, DNS records, DNSSEC, TLS/SSL, redirect chain, broken links, load time, mixed content, or a Lighthouse audit |
+| Geekflare Website Check | Uptime, DNS records, TLS/SSL, redirect chain, broken links, load time, or a Lighthouse audit |
 
 Every tool returns the API response as JSON.
 

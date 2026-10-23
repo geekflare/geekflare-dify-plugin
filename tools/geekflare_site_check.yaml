@@ -5,11 +5,11 @@ identity:
     en_US: Geekflare Website Check
 description:
   human:
-    en_US: 'Run a website check: uptime, DNS records, DNSSEC, TLS/SSL, redirects, broken links, load time, mixed content,
-      or a Lighthouse audit.'
-  llm: 'Run one website check and return the result as JSON: site_status (up/down), dns_records, dnssec, tls_scan (certificate
-    and TLS versions), redirect_check, broken_links, load_time, mixed_content, or lighthouse (performance/SEO/accessibility
-    scores; slow). Reports findings only.'
+    en_US: 'Run a website check: uptime, DNS records, TLS/SSL, redirects, broken links, load time, or a Lighthouse
+      audit.'
+  llm: 'Run one website check and return the result as JSON: site_status (up/down), dns_records, tls_scan (certificate
+    and TLS versions), redirect_check, broken_links, load_time, or lighthouse (performance/SEO/accessibility scores; slow).
+    Reports findings only.'
 parameters:
 - name: url
   type: string
@@ -37,9 +37,6 @@ parameters:
   - value: dns_records
     label:
       en_US: DNS records
-  - value: dnssec
-    label:
-      en_US: DNSSEC
   - value: tls_scan
     label:
       en_US: TLS/SSL scan
@@ -52,9 +49,6 @@ parameters:
   - value: load_time
     label:
       en_US: Load time
-  - value: mixed_content
-    label:
-      en_US: Mixed content
   - value: lighthouse
     label:
       en_US: Lighthouse audit

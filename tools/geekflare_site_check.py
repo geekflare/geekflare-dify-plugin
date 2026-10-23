@@ -10,12 +10,10 @@ from tools.utils import invoke, normalize_url
 CHECKS: dict[str, str] = {
     "site_status": "up",
     "dns_records": "dnsrecord",
-    "dnssec": "dnssec",
     "tls_scan": "tlsscan",
     "redirect_check": "redirectcheck",
     "broken_links": "brokenlink",
     "load_time": "loadtime",
-    "mixed_content": "mixedcontent",
     "lighthouse": "lighthouse",
 }
 
