@@ -1,0 +1,19 @@
+# Monthly dependency update PRs for requirements.txt.
+# Ranges only change when a new release falls outside them (for example dify_plugin 0.11).
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: monthly
+    versioning-strategy: increase-if-necessary
+    groups:
+      python:
+        patterns: ["*"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
